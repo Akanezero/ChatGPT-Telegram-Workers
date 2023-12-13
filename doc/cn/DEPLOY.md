@@ -1,7 +1,5 @@
 # 部署流程
 
-[English Version](./en/DEPLOY_EN.md)
-
 ## 视频教程
 
 <a href="https://youtu.be/BvxrZ3WMrLE"><img style="max-width: 600px;" alt="image" src="https://user-images.githubusercontent.com/9513891/223895059-1ffa48c7-8801-4d7b-b9d3-15c857d03225.png"></a>
@@ -36,7 +34,7 @@
 
 1. 打开 [Cloudflare Workers](https://dash.cloudflare.com/?to=/:account/workers) 注册账号
 2. 点击右上角的 `Create a Service`
-3. 进入新建的workers, 选择`Quick Edit`, 将[`../dist/index.js`](../dist/index.js)代码复制到编辑器中,保存
+3. 进入新建的workers, 选择`Quick Edit`, 将[`../dist/index.js`](../../dist/index.js)代码复制到编辑器中,保存
 
 
 ### 四. 配置环境变量
@@ -45,9 +43,8 @@
 1. 打开 [Cloudflare Workers](https://dash.cloudflare.com/?to=/:account/workers) 点击你的Workers,点击右上角的 Setting -> Variables
 2. `API_KEY`：设置成 OpenAI API Key
 3. `TELEGRAM_AVAILABLE_TOKENS`：设置成 Telegram Bot Token
-4. `WORKERS_DOMAIN`：设置成你的Workers域名,例如`workers_name.username.workers.dev`, 可以在workers详情页的`Preview`找到
-5. `CHAT_WHITE_LIST`：设置成允许访问的用户的ID,例如`123456789,987654321`,不知道自己ID可以在和你创建的的机器人聊天中使用`/new`指令获取
-6. `I_AM_A_GENEROUS_PERSON`: 如果还是没有弄懂怎么获取ID,可以设置这个值为`true`,这样就关闭白名单功能,允许所有人访问。
+4. `CHAT_WHITE_LIST`：设置成允许访问的用户的ID,例如`123456789,987654321`,不知道自己ID可以在和你创建的的机器人聊天中使用`/new`指令获取
+5. `I_AM_A_GENEROUS_PERSON`: 如果还是没有弄懂怎么获取ID,可以设置这个值为`true`,这样就关闭白名单功能,允许所有人访问。
 
 
 ### 五. 绑定KV数据
@@ -72,7 +69,7 @@
 
 
 ## 自动部署
-0. 手动部署的一, 二, 三 步骤
-1. `mv wrangler-example.toml wrangler.toml`, 然后修改相应配置
-2. `npm install`
-3. `npm run deploy`
+1. 手动部署的一, 二, 三 步骤
+2. `mv wrangler-example.toml wrangler.toml`, 然后修改相应配置
+3. `npm install`
+4. `npm run deploy`

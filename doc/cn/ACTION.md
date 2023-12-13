@@ -14,10 +14,10 @@
 3. 点击“Create Token”按钮。
 4. 在 API token templates 中选择 Edit Cloudflare Workers
 <img style="max-width: 600px;" alt="image" src="https://user-images.githubusercontent.com/9513891/223635764-54bf4418-3571-49e4-8c41-a4d331f3d791.png">
-6. 在“Zone Resources”下拉菜单中，选择要授权的区域。
-7. 在“Account Resources”下拉菜单中，选择要授权的帐户。
+5. 在“Zone Resources”下拉菜单中，选择要授权的区域。
+6. 在“Account Resources”下拉菜单中，选择要授权的帐户。
 <img style="max-width: 600px;" alt="image" src="https://user-images.githubusercontent.com/9513891/223635869-aabb8ca6-7933-4f48-920f-6579d29947a8.png">
-8. 点击“Create Token”按钮。
+7. 点击“Create Token”按钮。
 > 现在您已创建一个具有 Workers 权限的 Cloudflare API Token。请记住，API Token 的安全性非常重要，请不要在不必要的情况下共享它，并定期更改 API Token。
 
 ## 4. 设置 Action 的 Secrets
@@ -25,7 +25,7 @@
 
 1. 在 Github 仓库的 Settings -> Secrets 中添加以下 Secrets
     - CF_API_TOKEN: 你的Cloudflare API TOKEN
-    - WRANGLER_TOML: 完整的 wrangler.toml 文件内容，可以参考[wrangler-example.toml](../wrangler-example.toml)
+    - WRANGLER_TOML: 完整的 wrangler.toml 文件内容，可以参考[wrangler-example.toml](../../wrangler-example.toml)
     - CF_WORKERS_DOMAIN（可选）: 你的Cloudflare Workers 路由（Workers 路由里你的*.workers.dev值，不带https://）
 2. 在 Github 仓库的 Settings -> Actions 中，将 Actions 启用
 
@@ -43,14 +43,14 @@
       schedule:
         - cron: '0 0 * * *'
     jobs:
-        sync:
-            runs-on: ubuntu-latest
-            steps:
-            - name: Sync
-                uses: repo-sync/github-sync@v2
-                with:
-                source_repo: 'https://github.com/TBXark/ChatGPT-Telegram-Workers'
-                target_repo: '填写你的仓库地址‘
-                github_token: ${{ secrets.GITHUB_TOKEN }} 
-                source_branch: 'master'
-  ``
+      sync:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Sync
+          uses: repo-sync/github-sync@v2
+          with:
+            source_repo: 'https://github.com/TBXark/ChatGPT-Telegram-Workers'
+            target_repo: '填写你的仓库地址'
+            github_token: ${{ secrets.GITHUB_TOKEN }} 
+            source_branch: 'master'
+  ```
