@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 import fs from 'fs';
 import adapter from 'cloudflare-worker-adapter';
 import {RedisCache} from 'cloudflare-worker-adapter/cache/redis.js';
@@ -38,4 +37,4 @@ function requestBuilder(baseURL, req) {
 
 // 延迟加载 ../main.js， 防止ENV过早初始化
 const {default: worker} = await import('../../main.js');
-adapter.startServerV2(env.PORT, env.HOST, env, {}, requestBuilder, worker.fetch);
+adapter.startServerV2(parseInt(env.PORT), env.HOST, env, {}, requestBuilder, worker.fetch);
